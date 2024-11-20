@@ -1,0 +1,179 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type BasicSkills {
+  _id: ID!
+  core: Details!
+  subskills: [Details!]!
+}
+
+type Battlesuit {
+  _id: ID!
+  basic: BasicSkills!
+  evasion: EvasionSkills!
+  features: [String!]!
+  id: String!
+  initialStar: String!
+  leader: LeaderSkills!
+  name: String!
+  passive: PassiveSkills!
+  sp: SpSkills
+  special: SpecialSkills!
+  type: String!
+  ultimate: UltimateSkills!
+  valkyrie: String!
+  version: String!
+  weapon: String!
+}
+
+input CreateBattlesuitDTO {
+  basic: CreateSkillsBaseDto!
+  evasion: CreateSkillsBaseDto!
+  features: [String!]!
+  id: String!
+  initialStar: String!
+  leader: CreateSkillsBaseDto!
+  name: String!
+  passive: CreateSkillsBaseDto!
+  sp: CreateSkillsBaseDto
+  special: CreateSkillsBaseDto!
+  type: String!
+  ultimate: CreateSkillsBaseDto!
+  valkyrie: String!
+  version: String!
+  weapon: String!
+}
+
+input CreateDetailDto {
+  description: String!
+  maxLv: Float
+  name: String!
+  params: JSONObject
+  requiredRank: String
+}
+
+input CreateSkillsBaseDto {
+  core: CreateDetailDto!
+  subskills: [CreateDetailDto!]!
+}
+
+type Details {
+  _id: ID!
+  description: String!
+  maxLv: Float
+  name: String!
+  params: JSONObject
+  requiredRank: String
+}
+
+type EvasionSkills {
+  _id: ID!
+  core: Details!
+  subskills: [Details!]!
+}
+
+"""
+The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSONObject
+
+type LeaderSkills {
+  _id: ID!
+  core: Details!
+  subskills: [Details!]!
+}
+
+type Mutation {
+  createBattlesuit(createBattlesuitDto: CreateBattlesuitDTO!): Battlesuit!
+  deleteAllBattlesuits: String!
+  deleteBattlesuitBy(term: String!): String!
+  deleteDetails(term: String!): String!
+  seedExecute: String!
+  updateBasicSkillBy(term: String!, updateBasicDto: UpdateSkillsBaseDto!): BasicSkills!
+  updateBattlesuit(term: String!, updateBattlesuitDto: UpdateBattlesuitDto!): Battlesuit!
+  updateDetails(term: String!, updateDetailDto: UpdateDetailDto!): Details!
+  updateEvasionSkillBy(term: String!, updateEvasionDto: UpdateSkillsBaseDto!): EvasionSkills!
+  updateLeaderSkillBy(term: String!, updateLeaderDto: UpdateSkillsBaseDto!): LeaderSkills!
+  updatePassiveSkillBy(term: String!, updatePassiveDto: UpdateSkillsBaseDto!): PassiveSkills!
+  updateSpSkillBy(term: String!, updateSpDto: UpdateSkillsBaseDto!): SpSkills!
+  updateSpecialSkillBy(term: String!, updateSpecialDto: UpdateSkillsBaseDto!): SpecialSkills!
+  updateUltimateSkillBy(term: String!, updateUltimateDto: UpdateSkillsBaseDto!): UltimateSkills!
+}
+
+type PassiveSkills {
+  _id: ID!
+  core: Details!
+  subskills: [Details!]!
+}
+
+type Query {
+  getAllBasicSkills: [BasicSkills!]!
+  getAllBattlesuits: [Battlesuit!]!
+  getAllDetails: [Details!]!
+  getAllEvasionSkills: [EvasionSkills!]!
+  getAllLeaderSkills: [LeaderSkills!]!
+  getAllPassiveSkills: [PassiveSkills!]!
+  getAllSpSkills: [SpSkills!]!
+  getAllSpecialSkills: [SpecialSkills!]!
+  getAllUltimateSkills: [UltimateSkills!]!
+  getBasicSkillBy(term: String!): BasicSkills!
+  getBattlesuitBy(term: String!): Battlesuit!
+  getBattlesuitSkillsBy(fields: String, term: String!): Battlesuit!
+  getDetailsBy(term: String!): Details!
+  getEvasionSkillBy(term: String!): EvasionSkills!
+  getLeaderSkillBy(term: String!): LeaderSkills!
+  getPassiveSkillBy(term: String!): PassiveSkills!
+  getSpSkillBy(term: String!): SpSkills!
+  getSpecialSkillBy(term: String!): SpecialSkills!
+  getUltimateSkillBy(term: String!): UltimateSkills!
+}
+
+type SpSkills {
+  _id: ID!
+  core: Details!
+  subskills: [Details!]!
+}
+
+type SpecialSkills {
+  _id: ID!
+  core: Details!
+  subskills: [Details!]!
+}
+
+type UltimateSkills {
+  _id: ID!
+  core: Details!
+  subskills: [Details!]!
+}
+
+input UpdateBattlesuitDto {
+  basic: String
+  evasion: String
+  features: [String!]
+  id: String
+  initialStar: String
+  leader: String
+  name: String
+  passive: String
+  sp: String
+  special: String
+  type: String
+  ultimate: String
+  valkyrie: String
+  version: String
+  weapon: String
+}
+
+input UpdateDetailDto {
+  description: String
+  maxLv: Float
+  name: String
+  params: JSONObject
+  requiredRank: String
+}
+
+input UpdateSkillsBaseDto {
+  core: String
+  subskills: [String!]
+}
